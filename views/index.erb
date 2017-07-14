@@ -1,0 +1,10 @@
+<h2>Average Calculator</h2>
+
+<textarea form='testformid' cols='40' rows='5' name='query' value='<%= params[:query] %>'></textarea>
+<form action='/' method='get' id='testformid'>
+  <button type='submit'>Calculate Average</button>
+</form>
+
+<% if @average %>
+  <h2><%= integer?(@average) ? @average.to_i : @average %></h2>
+<% end %>
