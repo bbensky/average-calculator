@@ -1,7 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'tilt/erubis'
-require 'pry'
 
 def integer?(num)
   num.to_i == num
@@ -14,7 +12,6 @@ end
 
 get '/' do
   numbers = params[:query].split(', ').map(&:to_f) unless !params[:query]
-  # binding.pry
 
   unless numbers.nil? || numbers.empty?
     average = numbers.reduce(:+) / numbers.size
