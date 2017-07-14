@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'tilt/erubis'
 
 def integer?(num)
   num.to_i == num
