@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'tilt/erubis'
+require 'pry'
 
 def integer?(num)
   num.to_i == num
@@ -12,10 +13,11 @@ def format_number(num)
 end
 
 get '/' do
-  numbers = params[:query].split(/\W+/).map(&:to_i) unless !params[:query]
+  numbers = params[:query].split(', ').map(&:to_f) unless !params[:query]
+  # binding.pry
 
   unless numbers.nil? || numbers.empty?
-    average = numbers.reduce(:+) / numbers.size.to_f
+    average = numbers.reduce(:+) / numbers.size
     @formatted_average = format_number(average)
   end
   
