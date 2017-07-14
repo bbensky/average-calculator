@@ -5,6 +5,6 @@
   <button type='submit'>Calculate Average</button>
 </form>
 
-<% if @average %>
-  <h2><%= integer?(@average) ? @average.to_i : @average %></h2>
+<% if @formatted_average %>
+  <h2><%= @formatted_average %></h2>
 <% end %>
