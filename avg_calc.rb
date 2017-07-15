@@ -12,7 +12,7 @@ def format_number(num)
 end
 
 get '/' do
-  numbers = params[:query].split(', ').map(&:to_f) unless !params[:query]
+  numbers = params[:query].split(/[^1-9.]/).map(&:to_f) unless !params[:query]
 
   unless numbers.nil? || numbers.empty?
     average = numbers.reduce(:+) / numbers.size
